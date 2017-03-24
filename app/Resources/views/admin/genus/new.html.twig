@@ -7,8 +7,13 @@
 			<h1>New Genus</h1>
 			
 			{{ form_start(genusForm) }}
-				{{ form_widget(genusForm) }}
-				<button type='submit' class='btn btn-primary'>Save</button>
+				{{ form_row(genusForm.name) }}
+				{{ form_row(genusForm.funFact) }}
+				{{ form_row(genusForm.subFamily) }}
+				{{ form_row(genusForm.speciesCount, {'label' : 'Number of species...'}) }}
+				{{ form_row(genusForm.isPublished) }}
+				{{ form_row(genusForm.firstDiscoveredAt) }}
+				<button type='submit' class='btn btn-primary' formnovalidate>Save</button>
 			{{ form_end(genusForm) }}
 		</div>
 	</div>
@@ -27,7 +32,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$(".js-datepicker").datepicker();
+			$(".js-datepicker").datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
 		});
 	</script>
 {% endblock %}
