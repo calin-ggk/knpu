@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Entity\SubFamily;
 use AppBundle\Repository\SubFamilyRepository;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class GenusFormType extends AbstractType
 {
@@ -31,7 +32,13 @@ class GenusFormType extends AbstractType
                     'No' => false
                 ]
             ])
-            ->add('firstDiscoveredAt');
+            ->add('firstDiscoveredAt', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => [
+                    'class' => 'js-datepicker'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
