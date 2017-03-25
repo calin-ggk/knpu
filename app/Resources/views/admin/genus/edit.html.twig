@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class='container'>
+	<div class='row'>
+		<div class='col-xs-12'>
+			<h1>Edit Genus</h1>
+			
+			{{ form_start(genusForm) }}
+				{{ form_row(genusForm.name) }}
+				{{ form_row(genusForm.funFact) }}
+				{{ form_row(genusForm.subFamily) }}
+				{{ form_row(genusForm.speciesCount, {'label' : 'Number of species...'}) }}
+				{{ form_row(genusForm.isPublished) }}
+				{{ form_row(genusForm.firstDiscoveredAt) }}
+				<button type='submit' class='btn btn-primary' formnovalidate>Save</button>
+			{{ form_end(genusForm) }}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://resources/demos/style.css">
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".js-datepicker").datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
+		});
+	</script>
+{% endblock %}
